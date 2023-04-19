@@ -26,7 +26,7 @@ class HomeSectionController extends Controller
             if($link && $home_section->bg_img){
                 unlink($link);
             }
-            $request->image->move(public_path('assets/img/home_section/'), $imageName);
+            $request->image->move('assets/img/home_section/', $imageName);
             $home_section->bg_img     = $imageName;
         }
         // $profession = json_decode($request->profession, true);

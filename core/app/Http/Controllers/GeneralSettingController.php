@@ -26,7 +26,7 @@ class GeneralSettingController extends Controller
             if($link && $setting->favicon){
                 unlink($link);
             }
-            $request->image->move(public_path('assets/img/logoicon/'), $imageName);
+            $request->image->move('assets/img/logoicon/', $imageName);
             $setting->favicon     = $imageName;
         }
         

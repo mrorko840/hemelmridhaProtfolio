@@ -25,7 +25,7 @@ class AboutController extends Controller
             if($link && $about->image){
                 unlink($link);
             }
-            $request->image->move(public_path('assets/img/profile/'), $imageName);
+            $request->image->move('assets/img/profile/', $imageName);
             $about->image     = $imageName;
         }
         

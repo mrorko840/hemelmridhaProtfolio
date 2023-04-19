@@ -29,7 +29,7 @@ class PortfolioController extends Controller
             if($link && $portfolio->image){
                 unlink($link);
             }
-            $request->image->move(public_path('assets/img/portfolio/'), $imageName);
+            $request->image->move('assets/img/portfolio/', $imageName);
             $portfolio->image   = $imageName;
         }
 

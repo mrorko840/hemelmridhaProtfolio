@@ -55,7 +55,7 @@ class SupportController extends Controller
     public function allMessageAjax(){
         $support = Support::latest()->get();
         $pendingCount = Support::where('is_read', 0)->count();
-        return response()->json(['data'=>$support,'count'=>$pendingCount]);
+        return response()->json(['count'=>$pendingCount]);
     }
 
     public function deleteMessage(Request $request){
