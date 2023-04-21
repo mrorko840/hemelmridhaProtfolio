@@ -82,12 +82,13 @@
                             <label for="title" class="form-label">Protfolio Title</label>
                             <input type="text" class="form-control" id="title" name="title">
                         </div>
+                                                
                         <div class="mb-3">
                             <label for="description" class="form-label">
                                 Protfolio Type
                             </label>
                             <select class="form-select" id="type" name="type">
-                                <option>Select Type</option>
+                                <option >Select Type</option>
                                 <option value="web">Web</option>
                                 <option value="app">App</option>
                             </select>
@@ -109,8 +110,10 @@
 
 @endsection
 @push('script')
+    
     <script>
         let AppUrl = window.location.origin;
+
 
         //addModal
         $(document).on('click','#addBtn' , function (e) {
@@ -121,7 +124,7 @@
             $('#portfolio_id').val('');
             $('#title').val('');
             $('#link').val('');
-            $('#type').val('');
+            $('#type').val('Select Type');
         });
 
         //editModal

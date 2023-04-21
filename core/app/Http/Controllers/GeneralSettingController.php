@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\GeneralSetting;
 use Illuminate\Http\Request;
+use App\Models\GeneralSetting;
+use Illuminate\Support\Facades\File;
 
 class GeneralSettingController extends Controller
 {
@@ -23,7 +24,7 @@ class GeneralSettingController extends Controller
         if($request->image){
             $imageName = time().'.'.$request->image->extension();  
             $link = 'assets/img/logoicon/' . $setting->favicon;
-            if($link && $setting->favicon){
+            if(File::exists($link)){
                 unlink($link);
             }
             $request->image->move('assets/img/logoicon/', $imageName);

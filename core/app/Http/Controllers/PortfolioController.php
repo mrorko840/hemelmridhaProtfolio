@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Portfolio;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class PortfolioController extends Controller
 {
@@ -26,7 +27,7 @@ class PortfolioController extends Controller
         if($request->image){
             $imageName = time().'.'.$request->image->extension();  
             $link = 'assets/img/portfolio/' . $portfolio->image;
-            if($link && $portfolio->image){
+            if(File::exists($link)){
                 unlink($link);
             }
             $request->image->move('assets/img/portfolio/', $imageName);

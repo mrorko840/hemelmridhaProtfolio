@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\About;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AboutController extends Controller
 {
@@ -22,7 +23,7 @@ class AboutController extends Controller
         if($request->image){
             $imageName = time().'.'.$request->image->extension();  
             $link = 'assets/img/profile/' . $about->image;
-            if($link && $about->image){
+            if(File::exists($link)){
                 unlink($link);
             }
             $request->image->move('assets/img/profile/', $imageName);

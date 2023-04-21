@@ -11,6 +11,7 @@ class UserController extends Controller
     public function changePass(){
         return view('backend.user.change-pass');
     }
+    
     public function updatePass(Request $request){
         $request->validate([
             'old_pass'          => 'required',
